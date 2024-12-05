@@ -1,3 +1,12 @@
+# VirtuCam
+
+VirtuCam Original Source Code. WE updated the Source code for @Lab_110(scammer group) but they never paid us for our work and now they use it and charge money for it and moreover blocked us and deleted the chats and banned us from any of there groups, you can create an Issue and we will drop each of the proof, we have every Chat. 
+
+WE ARE RELEASEING THE ORIGINAL SOURCE CODE NO NEED TO PAY FOR THERE SHIT SERVICE WHEN YOU CAN COMPILE AND USE IT ON YOUR OWN FOR FREE
+
+EVERY ASPECT OF THE PROJECT IS UPDATED, EVEN THE UI TO MAKE IT LOOK ELEGANT.
+
+
 # 安卓虚拟摄像头
 - 基于Xposed的虚拟摄像头
 # 请勿用于任何非法用途，所有后果自负！！
