@@ -1,0 +1,38 @@
+name: android_build
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+      - name: Setup Android SDK 34
+        uses: amyu/setup-android@v4
+        with:
+          sdk-version: 34
+          build-tools-version: 34.0.0
+          ndk-version: 25.2.9519653
+      - name: Install LSPosed latest
+        run: |
+          wget https://github.com/LSPosed/LSPosed/releases/download/v1.9.2/LSPosed-v1.9.2-7024-zygisk-release.zip
+          mkdir -p $ANDROID_HOME/lsposed
+          unzip -o LSPosed-v1.9.2-7024-zygisk-release.zip -d $ANDROID_HOME/lsposed
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Build with Gradle
+        run: ./gradlew assembleDebug -Psdk_version=34
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-build-apk
+          path: ./app/release/*.apk
